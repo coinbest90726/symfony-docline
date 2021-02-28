@@ -6,7 +6,7 @@
 DOCKER_COMPOSE                = docker-compose
 PROJECT_DIR                   = /var/www/symfony5_microkernel
 DOCKER_BASH                   = docker exec -ti symfony5_microkernel bash
-DOCKER_EXEC_ROOT              = ${DOCKER_BASH} -c
+DOCKER_EXEC                   = ${DOCKER_BASH} -c
 PROJECT_DIR                   = $(shell pwd)
 
 
