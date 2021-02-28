@@ -1,0 +1,28 @@
+# Doctrine configuration
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        url: '%env(DATABASE_URL)%'
+        server_version: '%env(DATABASE_SERVER_VERSION)%'
+        charset:  UTF8
+        mapping_types:
+            enum: string
+            json: string
+            uuid: string
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
+            uuid_binary: Ramsey\Uuid\Doctrine\UuidBinaryType
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        default_entity_manager: default
+        entity_managers:
+            default:
+                auto_mapping: true
+                connection: default
+                mappings:
+                    core:
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Domain'
+                        prefix: App\Domain\
+                        is_bundle: false
